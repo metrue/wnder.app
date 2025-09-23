@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wnder - Your trusted travel companion. Wander with Wonder and discover the world's stories with a friend who's always by your side.">
+    <meta name="keywords" content="travel companion, travel app, location stories, travel guide, travel friend, world explorer">
+    <meta name="author" content="Wnder">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wnder.app/">
+    <meta property="og:title" content="Wnder - Wander with Wonder">
+    <meta property="og:description" content="Your trusted travel companion for discovering the world's stories with a friend who's always by your side.">
+    <meta property="og:image" content="https://wnder.app/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://wnder.app/">
+    <meta property="twitter:title" content="Wnder - Wander with Wonder">
+    <meta property="twitter:description" content="Your trusted travel companion for discovering the world's stories with a friend who's always by your side.">
+    <meta property="twitter:image" content="https://wnder.app/assets/og-image.jpg">
+
+    <title>Wnder - Wander with Wonder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1 class="logo">Wnder</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#download" class="nav-link">Download</a>
+                    <a href="#about" class="nav-link">About</a>
+                </div>
+                <div class="language-selector">
+                    <select id="language-select" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="ja">日本語</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title" data-i18n="hero.title">Wander with Wonder</h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">Your trusted travel companion who silently walks beside you, sharing the world's most fascinating stories, history, and hidden treasures like only a close friend would.</p>
+                    <div class="hero-cta">
+                        <a href="#download" class="btn btn-primary" data-i18n="hero.cta">Download for iOS</a>
+                        <a href="#features" class="btn btn-secondary" data-i18n="hero.learn-more">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="app-preview">
+                                <!-- Placeholder for app screenshot -->
+                                <div class="app-preview-placeholder">
+                                    <h3>Wnder</h3>
+                                    <p>Your travel companion</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title" data-i18n="features.title">Your Perfect Travel Companion</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎭</div>
+                        <h3 class="feature-title" data-i18n="features.storytelling.title">Stories & Tales</h3>
+                        <p class="feature-description" data-i18n="features.storytelling.description">Listen to fascinating stories about your surroundings—history, art, culture, and hidden gems that only a close friend would know to share.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3 class="feature-title" data-i18n="features.silent-companion.title">Silent Companion</h3>
+                        <p class="feature-description" data-i18n="features.silent-companion.description">Always by your side, quietly discovering amazing places around you. Like having a well-traveled friend who knows just when to share something wonderful.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3 class="feature-title" data-i18n="features.natural-conversation.title">Natural Conversation</h3>
+                        <p class="feature-description" data-i18n="features.natural-conversation.description">Talk with your travel companion just like you would with a close friend. Ask questions, share curiosities, or simply enjoy the conversation along your journey.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📸</div>
+                        <h3 class="feature-title" data-i18n="features.shared-memories.title">Shared Memories</h3>
+                        <p class="feature-description" data-i18n="features.shared-memories.description">Create beautiful memories together as you explore. Your companion helps you capture and remember the special moments from every adventure.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2 class="section-title" data-i18n="how-it-works.title">How Wnder Works</h2>
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title" data-i18n="how-it-works.step1.title">Open & Explore</h3>
+                        <p class="step-description" data-i18n="how-it-works.step1.description">Launch Wnder and start exploring. The app automatically detects interesting locations around you.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title" data-i18n="how-it-works.step2.title">Listen & Learn</h3>
+                        <p class="step-description" data-i18n="how-it-works.step2.description">Receive personalized AI-generated stories about nearby points of interest, tailored to your preferences.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title" data-i18n="how-it-works.step3.title">Interact & Remember</h3>
+                        <p class="step-description" data-i18n="how-it-works.step3.description">Chat with your AI guide, ask questions, and automatically save your travel memories in your personal journal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download">
+            <div class="container">
+                <div class="download-content">
+                    <h2 class="section-title" data-i18n="download.title">Start Your Journey Today</h2>
+                    <p class="download-subtitle" data-i18n="download.subtitle">Available on iOS. Android coming soon.</p>
+                    <div class="download-buttons">
+                        <a href="#" class="download-btn">
+                            <img src="assets/app-store-badge.svg" alt="Download on the App Store" data-i18n-alt="download.app-store-alt">
+                        </a>
+                        <div class="coming-soon">
+                            <img src="assets/google-play-badge-disabled.svg" alt="Coming soon to Google Play" data-i18n-alt="download.google-play-alt">
+                            <span class="coming-soon-text" data-i18n="download.android-coming-soon">Android Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Wnder</h3>
+                    <p data-i18n="footer.tagline">Wander with Wonder</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4 data-i18n="footer.product">Product</h4>
+                        <a href="#features" data-i18n="footer.features">Features</a>
+                        <a href="#download" data-i18n="footer.download">Download</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4 data-i18n="footer.support">Support</h4>
+                        <a href="mailto:hello@wnder.app" data-i18n="footer.contact">Contact</a>
+                        <a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a>
+                        <a href="/terms" data-i18n="footer.terms">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Wnder. <span data-i18n="footer.rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

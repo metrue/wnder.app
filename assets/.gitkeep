@@ -1,0 +1,12 @@
+# Assets Directory
+
+This directory will contain:
+
+- app-store-badge.svg - App Store download badge
+- google-play-badge-disabled.svg - Disabled Google Play badge  
+- og-image.jpg - Open Graph social media image (1200x630px)
+- favicon.ico - Website favicon
+- app-screenshots/ - App preview images for hero section
+- icons/ - Wnder app icons in various sizes
+
+Assets should be optimized for web delivery with appropriate compression.
