@@ -1,0 +1,11 @@
+# Robots.txt for wnder.app
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://wnder.app/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

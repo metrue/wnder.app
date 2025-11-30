@@ -330,6 +330,15 @@ body {
     z-index: 2;
 }
 
+/* Hero Screenshot */
+.hero-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 28px;
+}
+
 /* Sections */
 .section-title {
     font-size: var(--font-size-4xl);
