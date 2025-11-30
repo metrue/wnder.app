@@ -223,11 +223,22 @@ let currentLanguage = 'en';
 
 // Language switching function
 function changeLanguage(lang) {
+    const previousLanguage = currentLanguage;
     currentLanguage = lang;
     updatePageContent();
-    
+
     // Save preference to localStorage
     localStorage.setItem('wnder-language', lang);
+
+    // Track language change event
+    if (previousLanguage !== lang) {
+        trackEvent('language_change', {
+            event_category: 'settings',
+            event_label: lang,
+            from_language: previousLanguage,
+            to_language: lang
+        });
+    }
 }
 
 // Update page content with translations
@@ -351,28 +362,95 @@ function initializeFormHandling() {
     console.log('Form handling initialized');
 }
 
-// Analytics tracking (placeholder)
+// Analytics tracking with Google Analytics 4
 function trackEvent(eventName, properties = {}) {
-    // Placeholder for analytics tracking
-    console.log('Event tracked:', eventName, properties);
-    
-    // Example: Google Analytics 4
-    // gtag('event', eventName, properties);
-    
-    // Example: Custom analytics
-    // analytics.track(eventName, properties);
+    // Log for debugging (remove in production if desired)
+    console.log('📊 Event tracked:', eventName, properties);
+
+    // Send to Google Analytics 4
+    if (typeof gtag === 'function') {
+        gtag('event', eventName, properties);
+    }
 }
 
-// Track download clicks
+// Track download/App Store button clicks (primary conversion event)
 function initializeDownloadTracking() {
-    const downloadButtons = document.querySelectorAll('.download-btn, .btn-primary');
-    
-    downloadButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
+    // Track App Store download button (main conversion)
+    const downloadBtn = document.querySelector('.download-btn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', (e) => {
             trackEvent('download_click', {
-                button_text: button.textContent.trim(),
+                event_category: 'conversion',
+                event_label: 'app_store_download',
+                button_location: 'download_section',
                 language: currentLanguage,
-                page_url: window.location.href
+                transport_type: 'beacon' // Ensures event is sent even if page unloads
+            });
+        });
+    }
+
+    // Track hero CTA buttons
+    const heroCTAButtons = document.querySelectorAll('.hero-cta .btn');
+    heroCTAButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const buttonType = button.classList.contains('btn-primary') ? 'primary' : 'secondary';
+            const buttonText = button.getAttribute('data-i18n') || button.textContent.trim();
+
+            trackEvent('cta_click', {
+                event_category: 'engagement',
+                event_label: buttonText,
+                button_type: buttonType,
+                button_location: 'hero',
+                language: currentLanguage
+            });
+        });
+    });
+}
+
+// Track navigation link clicks
+function initializeNavigationTracking() {
+    // Track header navigation clicks
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const target = link.getAttribute('href');
+            const linkText = link.textContent.trim();
+
+            trackEvent('navigation_click', {
+                event_category: 'engagement',
+                event_label: linkText,
+                link_target: target,
+                link_location: 'header'
+            });
+        });
+    });
+
+    // Track footer link clicks
+    const footerLinks = document.querySelectorAll('.footer-links a');
+    footerLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const target = link.getAttribute('href');
+            const linkText = link.textContent.trim();
+
+            trackEvent('navigation_click', {
+                event_category: 'engagement',
+                event_label: linkText,
+                link_target: target,
+                link_location: 'footer'
+            });
+        });
+    });
+
+    // Track social link clicks
+    const socialLinks = document.querySelectorAll('.footer-social a');
+    socialLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const platform = link.getAttribute('aria-label') || 'unknown';
+
+            trackEvent('social_click', {
+                event_category: 'engagement',
+                event_label: platform,
+                link_url: link.getAttribute('href')
             });
         });
     });
@@ -384,7 +462,7 @@ function initializePerformanceMonitoring() {
     window.addEventListener('load', () => {
         if ('performance' in window) {
             const perfData = performance.getEntriesByType('navigation')[0];
-            
+
             trackEvent('page_performance', {
                 load_time: Math.round(perfData.loadEventEnd - perfData.fetchStart),
                 dom_content_loaded: Math.round(perfData.domContentLoadedEventEnd - perfData.fetchStart),
@@ -407,6 +485,57 @@ function registerServiceWorker() {
     }
 }
 
+// Track scroll depth and section visibility
+function initializeScrollTracking() {
+    let maxScrollDepth = 0;
+    const sections = ['features', 'download'];
+    const trackedSections = new Set();
+
+    // Track scroll depth milestones
+    window.addEventListener('scroll', () => {
+        const scrollPercent = Math.round(
+            (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+        );
+
+        // Track 25%, 50%, 75%, 100% scroll depth
+        const milestones = [25, 50, 75, 100];
+        milestones.forEach(milestone => {
+            if (scrollPercent >= milestone && maxScrollDepth < milestone) {
+                trackEvent('scroll_depth', {
+                    event_category: 'engagement',
+                    event_label: `${milestone}%`,
+                    percent_scrolled: milestone
+                });
+                maxScrollDepth = milestone;
+            }
+        });
+    });
+
+    // Track when key sections become visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.id;
+                if (sectionId && !trackedSections.has(sectionId)) {
+                    trackedSections.add(sectionId);
+                    trackEvent('section_view', {
+                        event_category: 'engagement',
+                        event_label: sectionId,
+                        section_name: sectionId
+                    });
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+
+    sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            observer.observe(section);
+        }
+    });
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeLanguage();
@@ -415,11 +544,21 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeAnimations();
     initializeFormHandling();
     initializeDownloadTracking();
+    initializeNavigationTracking();
+    initializeScrollTracking();
     initializePerformanceMonitoring();
-    
+
+    // Track page view with additional context
+    trackEvent('page_view', {
+        event_category: 'engagement',
+        page_title: document.title,
+        page_location: window.location.href,
+        language: currentLanguage
+    });
+
     // Register service worker for PWA features (commented out for now)
     // registerServiceWorker();
-    
+
     console.log('Wnder website initialized successfully');
 });
 
