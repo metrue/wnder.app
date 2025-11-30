@@ -1,6 +1,9 @@
 // Internationalization data
 const translations = {
     en: {
+        'nav.features': 'Features',
+        'nav.download': 'Download',
+        'nav.about': 'About',
         'hero.title': 'Your Stories Begin Here',
         'hero.subtitle': 'Open the app. Wnder finds nearby places and starts telling you fascinating stories—automatically. No tapping, no searching, just listen and explore.',
         'hero.cta': 'Get Started Free',
@@ -28,7 +31,7 @@ const translations = {
         'download.title': 'Ready to Explore?',
         'download.subtitle': 'Download Wnder for iPhone and iPad. Free to start, no account required.',
         'download.app-store-alt': 'Download on the App Store',
-        'download.note': 'Available on TestFlight Beta • Android coming 2025',
+        'download.note': 'Available on iOS • Android coming 2025',
         'footer.tagline': 'Your Stories Begin Here',
         'footer.product': 'Product',
         'footer.features': 'Features',
@@ -40,6 +43,9 @@ const translations = {
         'footer.rights': 'All rights reserved.'
     },
     zh: {
+        'nav.features': '功能',
+        'nav.download': '下载',
+        'nav.about': '关于',
         'hero.title': '您的故事从这里开始',
         'hero.subtitle': '打开应用，Wnder即刻发现附近地点并自动为您讲述精彩故事。无需点击，无需搜索，只需聆听和探索。',
         'hero.cta': '免费开始',
@@ -67,7 +73,7 @@ const translations = {
         'download.title': '准备好探索了吗？',
         'download.subtitle': '下载Wnder到iPhone和iPad。免费开始，无需注册账号。',
         'download.app-store-alt': '在App Store下载',
-        'download.note': 'TestFlight测试版 • 安卓版2025年推出',
+        'download.note': 'iOS版现已上架 • 安卓版2025年推出',
         'footer.tagline': '您的故事从这里开始',
         'footer.product': '产品',
         'footer.features': '功能',
@@ -79,6 +85,9 @@ const translations = {
         'footer.rights': '版权所有。'
     },
     es: {
+        'nav.features': 'Características',
+        'nav.download': 'Descargar',
+        'nav.about': 'Acerca de',
         'hero.title': 'Tus Historias Comienzan Aquí',
         'hero.subtitle': 'Abre la app. Wnder encuentra lugares cercanos y comienza a contarte historias fascinantes—automáticamente. Sin tocar, sin buscar, solo escucha y explora.',
         'hero.cta': 'Empezar Gratis',
@@ -106,7 +115,7 @@ const translations = {
         'download.title': '¿Listo para Explorar?',
         'download.subtitle': 'Descarga Wnder para iPhone y iPad. Gratis para empezar, sin cuenta requerida.',
         'download.app-store-alt': 'Descargar en el App Store',
-        'download.note': 'Disponible en TestFlight Beta • Android en 2025',
+        'download.note': 'Disponible en iOS • Android en 2025',
         'footer.tagline': 'Tus Historias Comienzan Aquí',
         'footer.product': 'Producto',
         'footer.features': 'Características',
@@ -118,6 +127,9 @@ const translations = {
         'footer.rights': 'Todos los derechos reservados.'
     },
     fr: {
+        'nav.features': 'Fonctionnalités',
+        'nav.download': 'Télécharger',
+        'nav.about': 'À propos',
         'hero.title': 'Vos Histoires Commencent Ici',
         'hero.subtitle': 'Ouvrez l\'app. Wnder trouve les lieux à proximité et vous raconte des histoires fascinantes—automatiquement. Sans toucher, sans chercher, écoutez et explorez.',
         'hero.cta': 'Commencer Gratuitement',
@@ -145,7 +157,7 @@ const translations = {
         'download.title': 'Prêt à Explorer ?',
         'download.subtitle': 'Téléchargez Wnder pour iPhone et iPad. Gratuit pour commencer, sans compte requis.',
         'download.app-store-alt': 'Télécharger sur l\'App Store',
-        'download.note': 'Disponible sur TestFlight Beta • Android en 2025',
+        'download.note': 'Disponible sur iOS • Android en 2025',
         'footer.tagline': 'Vos Histoires Commencent Ici',
         'footer.product': 'Produit',
         'footer.features': 'Fonctionnalités',
@@ -157,6 +169,9 @@ const translations = {
         'footer.rights': 'Tous droits réservés.'
     },
     de: {
+        'nav.features': 'Funktionen',
+        'nav.download': 'Herunterladen',
+        'nav.about': 'Über uns',
         'hero.title': 'Ihre Geschichten Beginnen Hier',
         'hero.subtitle': 'Öffnen Sie die App. Wnder findet nahegelegene Orte und erzählt Ihnen faszinierende Geschichten—automatisch. Kein Tippen, kein Suchen, einfach zuhören und erkunden.',
         'hero.cta': 'Kostenlos Starten',
@@ -184,7 +199,7 @@ const translations = {
         'download.title': 'Bereit zum Erkunden?',
         'download.subtitle': 'Laden Sie Wnder für iPhone und iPad herunter. Kostenlos starten, kein Konto erforderlich.',
         'download.app-store-alt': 'Im App Store herunterladen',
-        'download.note': 'Verfügbar auf TestFlight Beta • Android 2025',
+        'download.note': 'Verfügbar auf iOS • Android 2025',
         'footer.tagline': 'Ihre Geschichten Beginnen Hier',
         'footer.product': 'Produkt',
         'footer.features': 'Funktionen',
@@ -196,6 +211,9 @@ const translations = {
         'footer.rights': 'Alle Rechte vorbehalten.'
     },
     ja: {
+        'nav.features': '機能',
+        'nav.download': 'ダウンロード',
+        'nav.about': '概要',
         'hero.title': 'あなたの物語はここから始まる',
         'hero.subtitle': 'アプリを開くだけ。Wnderが近くの場所を見つけ、魅力的な物語を自動的にお届けします。タップ不要、検索不要、ただ聴いて探索するだけ。',
         'hero.cta': '無料で始める',
@@ -223,7 +241,7 @@ const translations = {
         'download.title': '探索の準備はできましたか？',
         'download.subtitle': 'iPhoneとiPadにWnderをダウンロード。無料で開始、アカウント不要。',
         'download.app-store-alt': 'App Storeでダウンロード',
-        'download.note': 'TestFlightベータ版で利用可能 • Android版2025年公開予定',
+        'download.note': 'iOSで利用可能 • Android版2025年公開予定',
         'footer.tagline': 'あなたの物語はここから始まる',
         'footer.product': '製品',
         'footer.features': '機能',
